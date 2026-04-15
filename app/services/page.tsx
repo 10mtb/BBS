@@ -13,11 +13,11 @@ import {
   Phone,
   Shield,
   Award,
-  MessageCircle,
   ArrowRight,
   Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { CtaSection } from '@/components/sections/cta-section';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -393,39 +393,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-bbs-green via-bbs-green to-bbs-green-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }} />
-        </div>
-        
-        <div className="relative container mx-auto px-4 text-center">
-          <MessageCircle className="h-16 w-16 mx-auto mb-6 opacity-80" />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Besoin d&apos;aide ? Contactez-nous
-          </h2>
-          <p className="text-white/90 max-w-2xl mx-auto mb-10 text-lg">
-            Notre équipe est disponible 24h/7j pour répondre à toutes vos questions 
-            et organiser une intervention rapide.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-bbs-green-dark hover:bg-white/90 font-bold text-xl px-12 py-8 h-auto shadow-xl" asChild>
-              <a href="tel:+33611708907">
-                <Phone className="mr-4 h-7 w-7" />
-                06 11 70 89 07
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-bbs-green font-semibold text-lg px-10 py-6 h-auto" asChild>
-              <Link href="/contact">
-                Demander un devis gratuit
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        title="Besoin d'aide ? Demandez un devis gratuit"
+        description="Notre équipe est disponible 24h/7j pour répondre à toutes vos questions et organiser une intervention rapide."
+        badgeText="Devis sous 24h"
+        buttons={['phone', 'contact']}
+      />
     </>
   );
 }

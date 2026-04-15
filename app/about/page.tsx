@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { CheckCircle2, Award, Users, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { CtaButtons } from '@/components/cta/cta-buttons';
+import { CtaSection } from '@/components/sections/cta-section';
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -247,18 +248,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-bbs-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Besoin d&apos;un dépannage ?
-          </h2>
-          <p className="text-white/90 max-w-2xl mx-auto mb-8">
-            Contactez BBS pour une intervention rapide. 
-            Service disponible 24h/7j.
-          </p>
-          <CtaButtons variant="hero" />
-        </div>
-      </section>
+      <CtaSection
+        title="Besoin d'un dépannage ?"
+        description="Contactez BBS pour une intervention rapide. Service disponible 24h/7j."
+        showBadge={false}
+      />
     </>
   );
 }

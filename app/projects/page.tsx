@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { CtaButtons } from '@/components/cta/cta-buttons';
+import { CtaSection } from '@/components/sections/cta-section';
 
 const projects = [
   {
@@ -232,18 +233,11 @@ export default function ProjectsPage() {
         </div>
       )}
 
-      <section className="py-16 bg-bbs-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Besoin d&apos;une intervention ?
-          </h2>
-          <p className="text-white/90 max-w-2xl mx-auto mb-8">
-            Comme ces clients, contactez-nous pour un dépannage rapide.
-            Service disponible 24h/7j.
-          </p>
-          <CtaButtons variant="hero" />
-        </div>
-      </section>
+      <CtaSection
+        title="Besoin d'une intervention ?"
+        description="Comme ces clients, contactez-nous pour un dépannage rapide. Service disponible 24h/7j."
+        showBadge={false}
+      />
     </>
   );
 }
