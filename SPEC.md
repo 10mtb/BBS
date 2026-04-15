@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Project Name**: BBS - Serrurerie, Plomberie, Électricité
+**Project Name**: BBS - Serrurerie, Plomberie, Électricité, Fermetures & Menuiseries
 **Project Type**: Multi-service artisan website (lead-generation landing site)
 **Tech Stack**: Next.js + TypeScript + Tailwind CSS + shadcn/ui
 **Template Base**: memextech/nextjs-shadcn-landing-page-template
@@ -99,6 +99,7 @@ Based on Kimi AI conversation with Ben Mefteh:
   - 🔑 Serrurerie (Ouverture de porte, Changement serrure, Blindage)
   - 🚿 Plomberie (Dépannage, Fuite, WC)
   - ⚡ Électricité (Panne électrique, Installation)
+  - 🔲 Fermetures (Rideaux métalliques, Stores, Volets, Fenêtres)
 - **Why Choose Us**: Rapid intervention, 24h/7j, Devis gratuit
 - **Emergency CTA Block**: Prominent contact options
 
@@ -119,6 +120,16 @@ Based on Kimi AI conversation with Ben Mefteh:
 - Panne électrique
 - Installation électrique
 - Dépannage rapide
+
+**Fermetures & Menuiseries:**
+- Rideaux métalliques
+- Stores bannes
+- Portes blindées
+- Volets roulants
+- Fenêtres PVC
+- Vitrines de magasin
+- Vérandas
+- Portails
 
 ### 5.3 Contact/Quote Page
 - Emergency hotline (click-to-call)

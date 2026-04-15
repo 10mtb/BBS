@@ -20,11 +20,11 @@ export function HeroSection() {
             ⚡ Dépannage urgent 24h/7j à Paris
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Serrurerie • Plomberie • Électricité
+            Serrurerie • Plomberie • Électricité • Fermetures
           </h1>
           <p className="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl">
             Votre artisan multi-services à Paris 17. Intervention rapide pour tous 
-            vos besoins en serrurerie, plomberie et électricité. Devis gratuit.
+            vos besoins en serrurerie, plomberie, électricité et fermetures/menuiseries. Devis gratuit.
           </p>
           <CtaButtons variant="hero" />
           <div className="flex flex-wrap gap-6 mt-10 text-sm">

@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'BBS - Serrurier, Plombier, Électricien Paris 17 | Dépannage 24h/7j',
+    default: 'BBS - Serrurier, Plombier, Électricien, Fermetures Paris 17 | 24h/7j',
     template: '%s | BBS',
   },
   description:
-    'BBS - Votre artisan multi-services à Paris 17. Serrurerie, plomberie et électricité en dépannage urgent 24h/7j. Intervention rapide, devis gratuit. Appelez le 06 11 70 89 07.',
+    'BBS - Votre artisan multi-services à Paris 17. Serrurerie, plomberie, électricité et fermetures/menuiseries en dépannage urgent 24h/7j. Rideaux métalliques, stores, volets. Appelez le 06 11 70 89 07.',
   keywords: [
     'serrurier Paris 17',
     'serrurier urgence Paris',
@@ -23,13 +23,17 @@ export const metadata: Metadata = {
     'plombier Paris 17',
     'électricien Paris 17',
     'serrurier 24h Paris',
-    'ouverture porte Paris',
-    'changement serrure Paris',
+    'rideaux métalliques Paris',
+    'stores bannes Paris',
+    'volets roulants Paris',
+    'fenêtres PVC Paris',
+    'portails Paris',
     'dépannage plomberie Paris',
     'dépannage électrique Paris',
     'bbs serrurier',
     'bbs plombier',
     'bbs electricien',
+    'bbs fermetures',
   ],
   authors: [{ name: 'BBS' }],
   creator: 'BBS',
@@ -39,15 +43,15 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: 'https://bbs-urgence.fr',
     siteName: 'BBS',
-    title: 'BBS - Serrurier, Plombier, Électricien Paris 17 | 24h/7j',
+    title: 'BBS - Serrurier, Plombier, Électricien, Fermetures Paris 17 | 24h/7j',
     description:
-      'Dépannage multi-services 24h/7j à Paris. Serrurerie, plomberie, électricité. Intervention rapide. Devis gratuit.',
+      'Dépannage multi-services 24h/7j à Paris. Serrurerie, plomberie, électricité, fermetures. Rideaux métalliques, stores, volets. Devis gratuit.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BBS - Serrurier, Plombier, Électricien Paris 17',
+    title: 'BBS - Serrurier, Plombier, Électricien, Fermetures Paris 17',
     description:
-      'Dépannage multi-services 24h/7j. Serrurerie, plomberie, électricité.',
+      'Dépannage multi-services 24h/7j. Serrurerie, plomberie, électricité, fermetures.',
   },
   robots: {
     index: true,

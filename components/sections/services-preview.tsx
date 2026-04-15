@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Key, Droplets, Zap, CheckCircle2 } from 'lucide-react';
+import { Key, Droplets, Zap, LayoutGrid, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -28,6 +28,14 @@ const services = [
     features: ['Panne électrique', 'Installation', 'Dépannage'],
     color: 'bg-yellow-500',
   },
+  {
+    icon: LayoutGrid,
+    title: 'Fermetures',
+    description:
+      'Rideaux métalliques, stores bannes, volets roulants, fenêtres PVC, portails.',
+    features: ['Rideaux métalliques', 'Stores bannes', 'Volets & Fenêtres'],
+    color: 'bg-purple-500',
+  },
 ];
 
 export function ServicesPreview() {
@@ -36,14 +44,14 @@ export function ServicesPreview() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Nos services de dépannage
+            Nos services
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            BBS intervient pour tous vos besoins en serrurerie, plomberie et électricité.
-            Service rapide et devis gratuit.
+            BBS intervient pour tous vos besoins en serrurerie, plomberie, 
+            électricité et fermetures/menuiseries. Service rapide et devis gratuit.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
             <Card key={service.title} className="group hover:shadow-lg transition-shadow border-2 hover:border-bbs-green/50">
               <CardHeader>

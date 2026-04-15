@@ -4,6 +4,7 @@ import {
   Key,
   Droplets,
   Zap,
+  LayoutGrid,
   CheckCircle2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,7 @@ import { CtaButtons } from '@/components/cta/cta-buttons';
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Découvrez nos services de dépannage : serrurerie, plomberie et électricité. Intervention rapide 24h/7j à Paris. Devis gratuit.',
+    'Découvrez nos services : serrurerie, plomberie, électricité et fermetures/menuiseries. Intervention rapide 24h/7j à Paris. Devis gratuit.',
 };
 
 const services = [
@@ -63,6 +64,23 @@ const services = [
       'Mise en conformité',
     ],
   },
+  {
+    id: 'fermetures',
+    icon: LayoutGrid,
+    title: 'Fermetures & Menuiseries',
+    description:
+      'Installation et réparation de fermetures et menuiseries. Rideaux métalliques, stores, volets, fenêtres, portails et plus.',
+    features: [
+      'Rideaux métalliques',
+      'Stores bannes',
+      'Portes blindées',
+      'Volets roulants',
+      'Fenêtres PVC',
+      'Vitrines de magasin',
+      'Vérandas',
+      'Portails',
+    ],
+  },
 ];
 
 const faqs = [
@@ -106,20 +124,20 @@ export default function ServicesPage() {
             <span className="text-white">Services</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Nos services de dépannage
+            Nos services
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl">
-            Serrurerie, plomberie et électricité. Intervention rapide 24h/7j 
-            à Paris. Devis gratuit.
+            Serrurerie, plomberie, électricité et fermetures/menuiseries. 
+            Intervention rapide 24h/7j à Paris. Devis gratuit.
           </p>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              {services.map((service) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="space-y-12">
+              {services.slice(0, 2).map((service) => (
                 <Card key={service.title} className="border-0 shadow-lg" id={service.id}>
                   <CardContent className="p-6 md:p-8">
                     <div className="flex items-start gap-4 mb-4">
@@ -150,42 +168,45 @@ export default function ServicesPage() {
                 </Card>
               ))}
             </div>
-            <div className="space-y-6">
-              <Card className="sticky top-24">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">
-                    Besoin d&apos;un dépannage ?
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    Contactez-nous pour une intervention rapide.
-                    Service disponible 24h/7j.
-                  </p>
-                  <CtaButtons showWhatsapp={false} />
-                  <div className="mt-6 pt-6 border-t">
-                    <h4 className="font-semibold mb-3">Questions fréquentes</h4>
-                    <Accordion type="single" collapsible className="w-full">
-                      {faqs.slice(0, 3).map((faq, index) => (
-                        <AccordionItem key={index} value={`item-${index}`}>
-                          <AccordionTrigger className="text-sm text-left">
-                            {faq.question}
-                          </AccordionTrigger>
-                          <AccordionContent className="text-sm text-muted-foreground">
-                            {faq.answer}
-                          </AccordionContent>
-                        </AccordionItem>
+            <div className="space-y-12">
+              {services.slice(2, 4).map((service) => (
+                <Card key={service.title} className="border-0 shadow-lg" id={service.id}>
+                  <CardContent className="p-6 md:p-8">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-lg bg-bbs-green flex items-center justify-center flex-shrink-0">
+                        <service.icon className="h-7 w-7 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold mb-2">
+                          {service.title}
+                        </h2>
+                        <p className="text-muted-foreground">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6">
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-start gap-2 text-sm"
+                        >
+                          <CheckCircle2 className="h-4 w-4 text-bbs-green mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
                       ))}
-                    </Accordion>
-                  </div>
-                </CardContent>
-              </Card>
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50 dark:bg-slate-950">
+      <section className="py-12 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">
+          <h2 className="text-2xl font-bold mb-8 text-center">
             Questions fréquentes
           </h2>
           <div className="max-w-3xl mx-auto">

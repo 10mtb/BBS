@@ -23,8 +23,8 @@ export function Footer() {
             <h3 className="text-2xl font-bold mb-4 text-bbs-green">BBS</h3>
             <p className="text-slate-400 text-sm mb-4">
               Société par Actions Simplifiée Unipersonnelle (SASU). 
-              Dépannage multi-services : serrurerie, plomberie et électricité 
-              à Paris et en Île-de-France.
+              Dépannage multi-services : serrurerie, plomberie, électricité 
+              et fermetures/menuiseries à Paris et en Île-de-France.
             </p>
           </div>
           <div>
@@ -52,6 +52,9 @@ export function Footer() {
               </Link>
               <Link href="/services#electricite" className="hover:text-white transition-colors">
                 ⚡ Électricité
+              </Link>
+              <Link href="/services#fermetures" className="hover:text-white transition-colors">
+                🔲 Fermetures
               </Link>
             </div>
           </div>
