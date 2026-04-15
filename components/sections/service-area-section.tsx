@@ -57,15 +57,17 @@ export function ServiceAreaSection() {
             </Button>
           </div>
           <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-white/5 p-8">
+            <div className="aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden border border-white/10">
               <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=1.9%2C48.1%2C3.5%2C49.2&layer=mapnik"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d287760.2865632173!2d2.2!3d48.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sIle-de-France!5e0!3m2!1sfr!2sfr!4v1704067200000!5m2!1sfr!2sfr"
                 width="100%"
                 height="100%"
-                style={{ border: 0, borderRadius: '1rem' }}
+                style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 title="Zone d'intervention Île-de-France"
+                className="grayscale-[50%]"
               />
             </div>
             <div className="absolute -bottom-4 -right-4 bg-bbs-green text-white p-4 rounded-lg shadow-xl">

@@ -10,26 +10,37 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <section className="bg-slate-900 text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <nav className="text-sm mb-6 text-slate-400">
-            <Link href="/" className="hover:text-white">
-              Accueil
-            </Link>
-            <span className="mx-2">/</span>
-            <Link href="/legal" className="hover:text-white">
-              Mentions légales
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">Politique de confidentialité</span>
-          </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Politique de confidentialité
-          </h1>
-          <p className="text-xl text-slate-300">
-            Protection de vos données personnelles (RGPD).
-          </p>
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }} />
         </div>
+        
+        <div className="relative container mx-auto px-4 py-20 md:py-28">
+          <div className="max-w-4xl mx-auto text-center">
+            <nav className="text-sm mb-6 text-slate-400">
+              <Link href="/" className="hover:text-white">
+                Accueil
+              </Link>
+              <span className="mx-2">/</span>
+              <Link href="/legal" className="hover:text-white">
+                Mentions légales
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="text-white">Politique de confidentialité</span>
+            </nav>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              Politique de confidentialité
+            </h1>
+            <p className="text-xl text-slate-300">
+              Protection de vos données personnelles (RGPD).
+            </p>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       <section className="py-16">

@@ -8,7 +8,7 @@ import { CtaButtons } from '@/components/cta/cta-buttons';
 export const metadata: Metadata = {
   title: 'À propos',
   description:
-    'Découvrez BBS, artisan multi-services à Paris 17. Serrurerie, plomberie, électricité. Intervention rapide 24h/7j.',
+    'Découvrez BBS, artisan multi-services à Paris 17. Serrurerie, plomberie, électricité et fermetures. Intervention rapide 24h/7j.',
 };
 
 const values = [
@@ -62,20 +62,32 @@ const steps = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-slate-900 text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <nav className="text-sm mb-6 text-slate-400">
-            <Link href="/" className="hover:text-white">
-              Accueil
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">À propos</span>
-          </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">À propos</h1>
-          <p className="text-xl text-slate-300 max-w-2xl">
-            Découvrez BBS, votre artisan multi-services de confiance à Paris 17.
-          </p>
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }} />
         </div>
+        
+        <div className="relative container mx-auto px-4 py-20 md:py-28">
+          <div className="max-w-4xl mx-auto text-center">
+            <nav className="text-sm mb-6 text-slate-400">
+              <Link href="/" className="hover:text-white">
+                Accueil
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="text-white">À propos</span>
+            </nav>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">À propos</h1>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Découvrez BBS, votre artisan multi-services de confiance à Paris 17. 
+              Intervention rapide 24h/7j dans toute l&apos;Île-de-France.
+            </p>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       <section className="py-16 md:py-24">
@@ -90,12 +102,17 @@ export default function AboutPage() {
                   BBS est une SASU (Société par Actions Simplifiée Unipersonnelle) 
                   spécialisée dans le dépannage multi-services. Fondée en 2025, 
                   notre entreprise intervient pour tous vos besoins en serrurerie, 
-                  plomberie et électricité.
+                  plomberie, électricité et fermetures.
                 </p>
                 <p>
                   Basés à Paris 17, nous répondons rapidement aux demandes 
                   d&apos;intervention urgente. Notre objectif : vous fournir un 
                   service fiable, rapide et de qualité.
+                </p>
+                <p>
+                  Nos prestations couvrent également les fermetures et menuiseries : 
+                  rideaux métalliques, stores bannes, portes blindées, volets roulants, 
+                  fenêtres PVC et portails.
                 </p>
                 <p>
                   Que ce soit pour une porte claquée, une fuite d&apos;eau ou une 
