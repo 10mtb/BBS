@@ -65,7 +65,7 @@ Based on Kimi AI conversation with Ben Mefteh:
 - **Alternative**: @bbs.depannage, @bbs.24h
 - **Bio Template**:
   ```
-  🔑 Serrurier 24h/7j | 🚪 Ouverture porte | 🔒 Changement serrure | 🚿 Plomberie & ⚡ Élec | 📞 [Numéro]
+  Serrurier 24h/7j | Ouverture porte | Changement serrure | Plomberie & Elec | [Numero]
   ```
 
 ## 3. Technical Specification
@@ -96,10 +96,10 @@ Based on Kimi AI conversation with Ben Mefteh:
 ### 5.1 Home Page
 - **Hero Section**: 24/7 Emergency services, clear CTA
 - **Services Summary**: 
-  - 🔑 Serrurerie (Ouverture de porte, Changement serrure, Blindage)
-  - 🚿 Plomberie (Dépannage, Fuite, WC)
-  - ⚡ Électricité (Panne électrique, Installation)
-  - 🔲 Fermetures (Rideaux métalliques, Stores, Volets, Fenêtres)
+  - Serrurerie (Ouverture de porte, Changement serrure, Blindage)
+  - Plomberie (Dépannage, Fuite, WC)
+  - Électricité (Panne électrique, Installation)
+  - Fermetures (Rideaux métalliques, Stores, Volets, Fenêtres)
 - **Why Choose Us**: Rapid intervention, 24h/7j, Devis gratuit
 - **Emergency CTA Block**: Prominent contact options
 

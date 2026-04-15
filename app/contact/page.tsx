@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { MapPin, Phone, Mail, Clock, MessageSquare, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageSquare, Send, MapPinned } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -25,11 +25,23 @@ const contactSchema = z.object({
   name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
   email: z.string().email('Adresse email invalide'),
   phone: z.string().min(10, 'Numéro de téléphone invalide'),
+  department: z.string().min(1, 'Sélectionnez votre département'),
   service: z.string().optional(),
   message: z.string().min(10, 'Le message doit contenir au moins 10 caractères'),
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
+
+const departments = [
+  { code: '75', name: 'Paris (75)' },
+  { code: '92', name: 'Hauts-de-Seine (92)' },
+  { code: '93', name: 'Seine-Saint-Denis (93)' },
+  { code: '94', name: 'Val-de-Marne (94)' },
+  { code: '77', name: 'Seine-et-Marne (77)' },
+  { code: '78', name: 'Yvelines (78)' },
+  { code: '91', name: 'Essonne (91)' },
+  { code: '95', name: "Val-d'Oise (95)" },
+];
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -40,6 +52,7 @@ export default function ContactPage() {
       name: '',
       email: '',
       phone: '',
+      department: '',
       service: '',
       message: '',
     },
@@ -49,7 +62,7 @@ export default function ContactPage() {
     console.log('Form submitted:', data);
     toast({
       title: 'Message envoyé !',
-      description: 'Nous vous recontacterons rapidement.',
+      description: 'Nous vous recontacterons dans les plus brefs délais.',
       variant: 'default',
     });
     form.reset();
@@ -57,7 +70,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-slate-900 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <nav className="text-sm mb-6 text-slate-400">
             <Link href="/" className="hover:text-white">
@@ -66,10 +79,10 @@ export default function ContactPage() {
             <span className="mx-2">/</span>
             <span className="text-white">Contact</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contactez-nous</h1>
           <p className="text-xl text-slate-300 max-w-2xl">
-            Besoin d&apos;un dépannage ? Contactez BBS pour une intervention rapide.
-            Service disponible 24h/7j.
+            Besoin d&apos;un dépannage ? Appelez-nous directement ou remplissez le formulaire.
+            Intervention rapide 24h/7j dans toute l&apos;Île-de-France.
           </p>
         </div>
       </section>
@@ -78,9 +91,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <Card>
+              <Card className="border-0 shadow-xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Contactez-nous</CardTitle>
+                  <CardTitle className="text-2xl">Demande de devis gratuit</CardTitle>
+                  <p className="text-muted-foreground">Remplissez le formulaire ci-dessous et nous vous recontacterons rapidement.</p>
                 </CardHeader>
                 <CardContent>
                   <Form {...form}>
@@ -143,32 +157,25 @@ export default function ContactPage() {
                         />
                         <FormField
                           control={form.control}
-                          name="service"
+                          name="department"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Type de service</FormLabel>
+                              <FormLabel>Département *</FormLabel>
                               <Select
                                 onValueChange={field.onChange}
                                 defaultValue={field.value}
                               >
                                 <FormControl>
                                   <SelectTrigger>
-                                    <SelectValue placeholder="Sélectionnez un service" />
+                                    <SelectValue placeholder="Sélectionnez votre département" />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>
-                                  <SelectItem value="serrurerie">
-                                    🔑 Serrurerie
-                                  </SelectItem>
-                                  <SelectItem value="plomberie">
-                                    🚿 Plomberie
-                                  </SelectItem>
-                                  <SelectItem value="electricite">
-                                    ⚡ Électricité
-                                  </SelectItem>
-                                  <SelectItem value="autre">
-                                    Autre
-                                  </SelectItem>
+                                  {departments.map((dept) => (
+                                    <SelectItem key={dept.code} value={dept.code}>
+                                      {dept.name}
+                                    </SelectItem>
+                                  ))}
                                 </SelectContent>
                               </Select>
                               <FormMessage />
@@ -178,13 +185,50 @@ export default function ContactPage() {
                       </div>
                       <FormField
                         control={form.control}
+                        name="service"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Type de service</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Sélectionnez un service" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="serrurerie">
+                                  Serrurerie
+                                </SelectItem>
+                                <SelectItem value="plomberie">
+                                  Plomberie
+                                </SelectItem>
+                                <SelectItem value="electricite">
+                                  Électricité
+                                </SelectItem>
+                                <SelectItem value="fermetures">
+                                  Fermetures & Menuiseries
+                                </SelectItem>
+                                <SelectItem value="autre">
+                                  Autre demande
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Message *</FormLabel>
+                            <FormLabel>Décrivez votre problème *</FormLabel>
                             <FormControl>
                               <Textarea
-                                placeholder="Décrivez votre problème..."
+                                placeholder="Décrivez votre problème, votre adresse et vos disponibilités..."
                                 className="min-h-[150px]"
                                 {...field}
                               />
@@ -200,7 +244,7 @@ export default function ContactPage() {
                         disabled={form.formState.isSubmitting}
                       >
                         <Send className="mr-2 h-4 w-4" />
-                        Envoyer le message
+                        Envoyer ma demande
                       </Button>
                     </form>
                   </Form>
@@ -209,6 +253,24 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-6">
+              <Card className="bg-bbs-green text-white border-0">
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-xl mb-4 flex items-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    Intervention urgente ?
+                  </h3>
+                  <p className="text-white/90 mb-4">
+                    Appelez-nous directement pour une intervention rapide.
+                  </p>
+                  <Button size="lg" className="w-full bg-white text-bbs-green hover:bg-white/90" asChild>
+                    <a href="tel:+33611708907">
+                      <Phone className="mr-2 h-5 w-5" />
+                      06 11 70 89 07
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
               <Card>
                 <CardHeader>
                   <CardTitle className="text-xl">Informations de contact</CardTitle>
@@ -221,7 +283,7 @@ export default function ContactPage() {
                       <p className="text-sm text-muted-foreground">
                         88 Rue de Levis
                         <br />
-                        75017 Paris, France
+                        75017 Paris
                       </p>
                     </div>
                   </div>
@@ -231,7 +293,7 @@ export default function ContactPage() {
                       <p className="font-medium">Téléphone</p>
                       <a
                         href="tel:+33611708907"
-                        className="text-sm text-muted-foreground hover:text-bbs-green"
+                        className="text-sm text-bbs-green hover:underline"
                       >
                         06 11 70 89 07
                       </a>
@@ -243,7 +305,7 @@ export default function ContactPage() {
                       <p className="font-medium">Email</p>
                       <a
                         href="mailto:bbs75.contact@gmail.com"
-                        className="text-sm text-muted-foreground hover:text-bbs-green"
+                        className="text-sm text-bbs-green hover:underline"
                       >
                         bbs75.contact@gmail.com
                       </a>
@@ -256,7 +318,18 @@ export default function ContactPage() {
                       <p className="text-sm text-muted-foreground">
                         Dépannage urgent : 24h/7j
                         <br />
-                        Lun - Dim : 00h00 - 23h59
+                        Tous les jours, même weekends
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <MapPinned className="h-5 w-5 text-bbs-green mt-0.5" />
+                    <div>
+                      <p className="font-medium">Zone d&apos;intervention</p>
+                      <p className="text-sm text-muted-foreground">
+                        Toute l&apos;Île-de-France
+                        <br />
+                        Paris, 92, 93, 94, 77, 78, 91, 95
                       </p>
                     </div>
                   </div>
@@ -265,7 +338,10 @@ export default function ContactPage() {
 
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Contactez-nous sur WhatsApp</h3>
+                  <h3 className="font-semibold mb-4 flex items-center gap-2">
+                    <MessageSquare className="h-5 w-5 text-bbs-green" />
+                    WhatsApp
+                  </h3>
                   <Button
                     className="w-full bg-green-600 hover:bg-green-700"
                     asChild
@@ -279,24 +355,6 @@ export default function ContactPage() {
                       Ouvrir WhatsApp
                     </a>
                   </Button>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Nous localiser</h3>
-                  <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.683487!2d2.3068!3d48.8877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fbe4a5b7b3f%3A0x40ca5cd36e4ab70!2s88+Rue+de+L%C3%A9vis%2C+75017+Paris!5e0!3m2!1sfr!2sfr!4v1"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Localisation BBS à Paris 17"
-                    />
-                  </div>
                 </CardContent>
               </Card>
             </div>

@@ -1,9 +1,9 @@
 export const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'BBS',
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'Locksmith', 'Plumber', 'Electrician'],
+  name: 'BBS - Artisan Multi-Services',
   description:
-    'Dépannage multi-services à Paris 17 : serrurerie, plomberie, électricité et fermetures/menuiseries. Intervention rapide 24h/7j.',
+    'Artisan multi-services à Paris et en Île-de-France. Dépannage urgent 24h/7j en serrurerie, plomberie, électricité et fermetures/menuiseries.',
   image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
   '@id': 'https://bbs-urgence.fr',
   url: 'https://bbs-urgence.fr',
@@ -45,6 +45,21 @@ export const jsonLd = {
       '@type': 'AdministrativeArea',
       name: 'Île-de-France',
     },
+    {
+      '@type': 'State',
+      name: 'Hauts-de-Seine',
+      containedIn: 'Île-de-France',
+    },
+    {
+      '@type': 'State',
+      name: 'Seine-Saint-Denis',
+      containedIn: 'Île-de-France',
+    },
+    {
+      '@type': 'State',
+      name: 'Val-de-Marne',
+      containedIn: 'Île-de-France',
+    },
   ],
   serviceType: [
     'Serrurerie',
@@ -65,8 +80,47 @@ export const jsonLd = {
     'Vérandas',
     'Portails',
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Services de dépannage',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Serrurerie',
+          description: 'Ouverture de porte, changement de serrure, blindage',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Plomberie',
+          description: 'Réparation fuite, débouchage, WC',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Électricité',
+          description: 'Panne électrique, installation, mise aux normes',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Fermetures et Menuiseries',
+          description: 'Rideaux métalliques, stores, volets, fenêtres',
+        },
+      },
+    ],
+  },
   sameAs: [
     'https://www.instagram.com/bbs.urgence',
+    'https://www.facebook.com/bbs.urgence',
   ],
 };
 
