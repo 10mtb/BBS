@@ -40,8 +40,7 @@ export function HeroSection() {
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold text-lg px-8 py-6 h-auto"
+              className="bg-white/10 hover:bg-white border-2 border-white text-white hover:text-bbs-green-dark font-semibold text-lg px-8 py-6 h-auto"
               asChild
             >
               <a href="/contact">

@@ -28,9 +28,9 @@ export function CtaButtons({
         <Button
           size={isHero ? 'lg' : 'default'}
           asChild
-          className={`${isHero ? 'bg-white/10 border-white text-white hover:bg-white/20 font-semibold focus-visible:ring-white focus-visible:ring-offset-slate-900' : 'bg-bbs-green/10 text-bbs-green hover:bg-bbs-green hover:text-white border border-bbs-green'}`}
+          className={`${isHero ? 'bg-white text-bbs-green-dark hover:bg-white/90 font-semibold' : 'bg-bbs-green/10 text-bbs-green hover:bg-bbs-green hover:text-white border border-bbs-green font-semibold'}`}
         >
-          <a href="tel:+33611708907" className={isHero ? 'text-white' : 'text-bbs-green'}>
+          <a href="tel:+33611708907">
             <Phone className="mr-2 h-4 w-4" />
             06 11 70 89 07
           </a>
@@ -38,9 +38,8 @@ export function CtaButtons({
       )}
       {showWhatsapp && !isHero && (
         <Button
-          variant="outline"
           size="default"
-          className="bg-green-600 hover:bg-green-700 text-white border-green-600"
+          className="bg-green-600 hover:bg-green-700 text-white border-green-600 font-semibold"
           asChild
         >
           <a

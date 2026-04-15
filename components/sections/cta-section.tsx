@@ -39,8 +39,7 @@ export function CtaSection() {
           </Button>
           <Button
             size="lg"
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-bbs-green font-semibold text-lg px-10 py-7 h-auto"
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold text-lg px-10 py-7 h-auto"
             asChild
           >
             <a 
