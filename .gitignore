@@ -13,3 +13,4 @@ temp/
 coverage/
 .next/
 out/
+.vercel
